@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option go_package = "github.com/Joe5451/modular-ecommerce/user/userpb";
+
+package userpb;
+
+service UserService {
+  rpc GetUser (GetUserRequest) returns (GetUserResponse);
+  rpc RegisterUser (RegisterUserRequest) returns (RegisterUserResponse);
+  rpc AuthenticateUser (AuthenticateUserRequest) returns (AuthenticateUserResponse);
+}
+
+message GetUserRequest {
+  string id = 1;
+}
+
+message GetUserResponse {
+  string id = 1;
+  string email = 2;
+  string name = 3;
+}
+
+message RegisterUserRequest {
+  string id = 1;
+  string email = 2;
+  string name = 3;
+  string password = 4;
+}
+
+message RegisterUserResponse {
+  string id = 1;
+  string message = 2;
+}
+
+message AuthenticateUserRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message AuthenticateUserResponse {
+  string id = 1;
+  string email = 2;
+  string name = 3;
+  string message = 4;
+}
